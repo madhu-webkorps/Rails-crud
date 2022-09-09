@@ -1,0 +1,49 @@
+<div class="container">
+    <h1 class = "mt-10">Add Your Product Detalis Here</h1>
+
+    <div class="form-group">
+    <%= @product.seller_id%>
+       
+     
+     <%= form_for @product do |product| %>
+            <div class='form-group'>
+                <%= product.label :name %>
+                    <%= product.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class='form-group'>
+                <%= product.label :price %>
+                    <%= product.number_field :price, class:'form-control'%>
+            </div>
+
+            <div class='form-group'>
+                <%= product.label :description %>
+                    <%= product.text_field :description, class:'form-control'%>
+            </div>
+            <% if @product.seller_id.present? %>
+            <div class='form-group'>
+                <%= product.label :seller_id %>
+                    <%= product.number_field  :seller_id,readonly: true , class:'form-control'%>
+            </div>
+            <%end%>
+
+            <% if @product.buyer_id.present? %>
+            <div class='form-group'>
+                <%= product.label :buyer_id %>
+                    <%= product.number_field  :buyer_id,readonly: true , class:'form-control'%>
+            </div>
+            <%end%>
+
+
+            
+           
+            <div class='form-group'>
+            <%= product.submit "Sell Product" , class: 'btn btn-primary btn-block' %>
+           <%# <%=  submit_tag "Submit", id: "foo-submit", data: { disable_with: "Please wait..." }%> 
+          
+            </div>
+
+
+
+            <% end %> 
+    </div> 
